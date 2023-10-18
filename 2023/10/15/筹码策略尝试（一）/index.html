@@ -20,31 +20,38 @@
     var CONFIG = {"hostname":"chandlersong.me","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="share my technique experience">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cs blog">
-<meta property="og:url" content="https://chandlersong.me/index.html">
+  <meta name="description" content="对于筹码策略的第一次尝试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="筹码策略尝试（一）">
+<meta property="og:url" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="cs blog">
-<meta property="og:description" content="share my technique experience">
+<meta property="og:description" content="对于筹码策略的第一次尝试">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/sh603518_%E9%94%A6%E6%B3%93%E9%9B%86%E5%9B%A2.png">
+<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/%E8%B7%8Csh603679_%E5%8D%8E%E4%BD%93%E7%A7%91%E6%8A%80_0.png">
+<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/VOL_DPO_5_transactions.png">
+<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/VOL_DPO_210_transactions.png">
+<meta property="article:published_time" content="2023-10-15T14:46:10.000Z">
+<meta property="article:modified_time" content="2023-10-17T14:31:50.902Z">
 <meta property="article:author" content="chandler song">
-<meta property="article:tag" content="quant, python, java">
+<meta property="article:tag" content="筹码策略">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/sh603518_%E9%94%A6%E6%B3%93%E9%9B%86%E5%9B%A2.png">
 
-<link rel="canonical" href="https://chandlersong.me/">
+<link rel="canonical" href="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>cs blog</title>
+  <title>筹码策略尝试（一） | cs blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5HLL0G42Z"></script>
     <script>
@@ -156,9 +163,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -174,10 +182,9 @@
       <meta itemprop="name" content="cs blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">筹码策略尝试（一）</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          筹码策略尝试（一）
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -216,30 +223,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>对于筹码策略的第一次尝试</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>对于筹码策略的第一次尝试</p>
+<span id="more"></span>
+
+<h1 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h1><p>整个策略的基础，来源于船队。在原本的筹码策略中，加入了小市值，价格和归母公司利润几个条件后，把收益弄到了50%+。</p>
+<p>怀揣着喜悦的心情。开始疯狂的加入因子。来玩排列组合。这些都是都是负增长。</p>
+<h1 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h1><p>跟着邢大的视频，跳出了赚的最多和亏的最多的三只股票进行分析，</p>
+<p>比如下图中赚的最多锦泓集团。</p>
+<img src="sh603518_锦泓集团.png" />
+
+<p>以及亏的最多的华体科技</p>
+<img src="跌sh603679_华体科技_0.png" />
+
+
+<p>篇幅所限，这里展示了两个，我在看了亏的最多的和亏的最多的几个股票后，感觉成交量会是一个挺敏感的因素。那么下面，我就试图把成交量加入进入。进行分析。</p>
+<h1 id="第三阶段"><a href="#第三阶段" class="headerlink" title="第三阶段"></a>第三阶段</h1><p>我选择了几个因子。效果都不行。基本都是负优化。之后我就试着把分布图给画出来。<br>分布图的X轴为收益，y轴为因子值</p>
+<p>而分箱图是根据收益大小来排序。</p>
+<p>下面是参数为5的分布图和分箱图</p>
+<img src="VOL_DPO_5_transactions.png" />
+
+<p>下面是参数为210的分布图和分箱图</p>
+<img src="VOL_DPO_210_transactions.png"/>
+
+<p>在看了这里之后，我得出了以下结论。</p>
+<ol>
+<li>从分布来说，其实没有任何的特点。可以看到无论短期，还是长期，都是集中在中心。而且单独来看，基本都是正态分布。</li>
+<li>分箱图更是惨不忍睹。</li>
+</ol>
+<h1 id="最后的感想。"><a href="#最后的感想。" class="headerlink" title="最后的感想。"></a>最后的感想。</h1><ol>
+<li>尝试改成事件策略。因为从分布图上来看，改成事件策略的胜率，可能会比较高。因为分布图的右侧要比左侧密，而且数值要大。</li>
+<li>因子不是越多越好，而是每种因子都有自己的风格。按照自己的风格选择就好。</li>
+</ol>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5/" rel="tag"># 筹码策略</a>
+          </div>
+
+        
+
+
+        
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -292,6 +327,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5"><span class="nav-number">1.</span> <span class="nav-text">第一阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5"><span class="nav-number">2.</span> <span class="nav-text">第二阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5"><span class="nav-number">3.</span> <span class="nav-text">第三阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E6%84%9F%E6%83%B3%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">最后的感想。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
