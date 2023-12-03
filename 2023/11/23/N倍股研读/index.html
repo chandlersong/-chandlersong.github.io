@@ -20,25 +20,25 @@
     var CONFIG = {"hostname":"chandlersong.me","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="对于筹码策略的第一次尝试">
+  <meta name="description" content="基于N倍股的研报的实现和研究。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="筹码策略尝试（一）">
-<meta property="og:url" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:title" content="N倍股研究">
+<meta property="og:url" content="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/index.html">
 <meta property="og:site_name" content="cs blog">
-<meta property="og:description" content="对于筹码策略的第一次尝试">
+<meta property="og:description" content="基于N倍股的研报的实现和研究。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/sh603518_%E9%94%A6%E6%B3%93%E9%9B%86%E5%9B%A2.png">
-<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/%E8%B7%8Csh603679_%E5%8D%8E%E4%BD%93%E7%A7%91%E6%8A%80_0.png">
-<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/VOL_DPO_5_transactions.png">
-<meta property="og:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/VOL_DPO_210_transactions.png">
-<meta property="article:published_time" content="2023-10-15T14:46:10.000Z">
-<meta property="article:modified_time" content="2023-10-17T14:31:50.902Z">
+<meta property="og:image" content="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png">
+<meta property="og:image" content="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/%E6%94%B6%E7%9B%8A%E5%91%A8%E6%9C%9F.png">
+<meta property="og:image" content="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/80%E5%A4%A9%E5%89%8D%E4%B8%BA%E6%9C%80%E4%BD%8E%E7%82%B9.png">
+<meta property="og:image" content="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/80%E5%A4%A9%E5%89%8D%E4%B8%BA%E6%B2%A1%E6%9C%89%E8%B0%83%E7%A0%94.png">
+<meta property="article:published_time" content="2023-11-23T14:18:13.000Z">
+<meta property="article:modified_time" content="2023-12-03T07:15:57.814Z">
 <meta property="article:author" content="chandler song">
-<meta property="article:tag" content="筹码策略">
+<meta property="article:tag" content="策略">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/sh603518_%E9%94%A6%E6%B3%93%E9%9B%86%E5%9B%A2.png">
+<meta name="twitter:image" content="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png">
 
-<link rel="canonical" href="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/">
+<link rel="canonical" href="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>筹码策略尝试（一） | cs blog</title>
+  <title>N倍股研究 | cs blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5HLL0G42Z"></script>
     <script>
@@ -170,7 +170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,7 +183,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          筹码策略尝试（一）
+          N倍股研究
         </h1>
 
         <div class="post-meta">
@@ -193,14 +193,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-10-15 22:46:10" itemprop="dateCreated datePublished" datetime="2023-10-15T22:46:10+08:00">2023-10-15</time>
+              <time title="创建时间：2023-11-23 22:18:13" itemprop="dateCreated datePublished" datetime="2023-11-23T22:18:13+08:00">2023-11-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 22:31:50" itemprop="dateModified" datetime="2023-10-17T22:31:50+08:00">2023-10-17</time>
+                <time title="修改时间：2023-12-03 15:15:57" itemprop="dateModified" datetime="2023-12-03T15:15:57+08:00">2023-12-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,7 +208,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">研究</span></a>
+                  <a href="/categories/%E7%A0%94%E6%8A%A5/" itemprop="url" rel="index"><span itemprop="name">研报</span></a>
                 </span>
             </span>
 
@@ -223,37 +223,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>对于筹码策略的第一次尝试</p>
+        <p>基于N倍股的研报的实现和研究。</p>
 <span id="more"></span>
 
-<h1 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h1><p>整个策略的基础，来源于船队。在原本的筹码策略中，加入了小市值，价格和归母公司利润几个条件后，把收益弄到了50%+。</p>
-<p>怀揣着喜悦的心情。开始疯狂的加入因子。来玩排列组合。这些都是都是负增长。</p>
-<h1 id="第二阶段"><a href="#第二阶段" class="headerlink" title="第二阶段"></a>第二阶段</h1><p>跟着邢大的视频，跳出了赚的最多和亏的最多的三只股票进行分析，</p>
-<p>比如下图中赚的最多锦泓集团。</p>
-<img src="sh603518_锦泓集团.png" />
+<h1 id="研报总结"><a href="#研报总结" class="headerlink" title="研报总结"></a>研报总结</h1><p>下图，就是对整篇研报的一个研报所做的一个思维导图。</p>
+<img src="思维导图.png" />
 
-<p>以及亏的最多的华体科技</p>
-<img src="跌sh603679_华体科技_0.png" />
+<p>就此研报来说。大致分为两部分。分别是涨幅的之前状态的分析和一些因子的归类。</p>
+<img src="收益周期.png" />
 
-
-<p>篇幅所限，这里展示了两个，我在看了亏的最多的和亏的最多的几个股票后，感觉成交量会是一个挺敏感的因素。那么下面，我就试图把成交量加入进入。进行分析。</p>
-<h1 id="第三阶段"><a href="#第三阶段" class="headerlink" title="第三阶段"></a>第三阶段</h1><p>我选择了几个因子。效果都不行。基本都是负优化。之后我就试着把分布图给画出来。<br>分布图的X轴为收益，y轴为因子值</p>
-<p>而分箱图是根据收益大小来排序。</p>
-<p>下面是参数为5的分布图和分箱图</p>
-<img src="VOL_DPO_5_transactions.png" />
-
-<p>下面是参数为210的分布图和分箱图</p>
-<img src="VOL_DPO_210_transactions.png"/>
-
-<p>在看了这里之后，我得出了以下结论。</p>
+<p>根据这篇研报，我用的是事件策略的框架去测试的。主要是以下几点原因。</p>
 <ol>
-<li>从分布来说，其实没有任何的特点。可以看到无论短期，还是长期，都是集中在中心。而且单独来看，基本都是正态分布。</li>
-<li>分箱图更是惨不忍睹。</li>
+<li>只吃一段的利润，而不是全部。吃全段的试错成本太高。根据研报的显示，N倍股整个周期为120天。选错了，亏钱不说，大半年就没钱赚了。</li>
+<li>比较契合。因为反弹这类事情，不是天天有的。类似于事件来说。</li>
 </ol>
-<h1 id="最后的感想。"><a href="#最后的感想。" class="headerlink" title="最后的感想。"></a>最后的感想。</h1><ol>
-<li>尝试改成事件策略。因为从分布图上来看，改成事件策略的胜率，可能会比较高。因为分布图的右侧要比左侧密，而且数值要大。</li>
-<li>因子不是越多越好，而是每种因子都有自己的风格。按照自己的风格选择就好。</li>
+<p>所以构建策略的基本思路，就是过去一年中，以最低点在最低点后N*10天为事件的触发时间点。然后根据研报加入一些因子来做过滤。</p>
+<h1 id="因子"><a href="#因子" class="headerlink" title="因子"></a>因子</h1><h2 id="反弹点"><a href="#反弹点" class="headerlink" title="反弹点"></a>反弹点</h2><p>如果要用这份研报来构筑策略，我选择从反弹点开始。</p>
+<ol>
+<li>收益的分析，是以最低点开始计算120天，然后10天为一个周期。除了第一个周期之外，最高的是第八个周期。其实这个也和回测一致。</li>
+<li>之前三年处于历史低位。换句话，N倍股都是反弹。</li>
 </ol>
+<p>可以看上传文件<a href="mark_bottom_flag.py">mark_bottom_flag.py</a></p>
+<p>下图为在过去一年内的最低点之后80天买入的IC<br><img src="80天前为最低点.png" /></p>
+<h2 id="缺少关注"><a href="#缺少关注" class="headerlink" title="缺少关注"></a>缺少关注</h2><p>研报中，多次提到，在上涨之前，这些个股，都是没有被关注的。其中包括。</p>
+<ol>
+<li>没有被机构调研。</li>
+<li>没有进入龙虎榜。</li>
+<li>股东人数较少</li>
+</ol>
+<p>80天前，调研次数为0的IC<br><img src="80天前为没有调研.png" /></p>
+<h2 id="过程中机构买入，慢慢变大"><a href="#过程中机构买入，慢慢变大" class="headerlink" title="过程中机构买入，慢慢变大"></a>过程中机构买入，慢慢变大</h2><p>这里我做了两个统计，都是根据已有数据中的机构买入来进行计算的。</p>
+<ol>
+<li>在上涨周期中，机构净流入比前一天高的天数。</li>
+<li>在上涨周期中，机构净流入为正的天数。</li>
+</ol>
+<p>可以看具体回测。感觉影响不大。</p>
+<h2 id="没有研究的因子"><a href="#没有研究的因子" class="headerlink" title="没有研究的因子"></a>没有研究的因子</h2><table>
+<thead>
+<tr>
+<th align="center">因素</th>
+<th align="center">原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">小市值</td>
+<td align="center">没有加入，主要觉得这个因子比较强，实现起来也比较简单</td>
+</tr>
+<tr>
+<td align="center">行业热度</td>
+<td align="center">一来比较难写。二来问了夏普，说这类因子一般效果不好</td>
+</tr>
+<tr>
+<td align="center">换手率</td>
+<td align="center">没有实验</td>
+</tr>
+<tr>
+<td align="center">财务因子</td>
+<td align="center">主要自己不太懂，有兴趣老板可以帮忙尝试一下</td>
+</tr>
+<tr>
+<td align="center">高波动，高弹性</td>
+<td align="center">要用分钟数据。</td>
+</tr>
+</tbody></table>
+<h1 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h1><p>我写了一个策略。基于事件策略框架。事件的条件基于判断N*10天前，是否有以下事件。</p>
+<ol>
+<li>发生了过去一年的最低点。</li>
+<li>之前没有相应的机构调研。</li>
+<li>机构买入增加。</li>
+</ol>
+<p>但是效果不是太好。代码和回测结果可以见附件。</p>
 
     </div>
 
@@ -263,7 +302,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5/" rel="tag"># 筹码策略</a>
+              <a href="/tags/%E7%AD%96%E7%95%A5/" rel="tag"># 策略</a>
           </div>
 
         
@@ -271,11 +310,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/" rel="next" title="N倍股研究">
-      N倍股研究 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="筹码策略尝试（一）">
+      <i class="fa fa-chevron-left"></i> 筹码策略尝试（一）
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -334,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5"><span class="nav-number">1.</span> <span class="nav-text">第一阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5"><span class="nav-number">2.</span> <span class="nav-text">第二阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5"><span class="nav-number">3.</span> <span class="nav-text">第三阶段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%9A%84%E6%84%9F%E6%83%B3%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">最后的感想。</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A0%94%E6%8A%A5%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">研报总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%A0%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">因子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%BC%B9%E7%82%B9"><span class="nav-number">2.1.</span> <span class="nav-text">反弹点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E5%B0%91%E5%85%B3%E6%B3%A8"><span class="nav-number">2.2.</span> <span class="nav-text">缺少关注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%9C%BA%E6%9E%84%E4%B9%B0%E5%85%A5%EF%BC%8C%E6%85%A2%E6%85%A2%E5%8F%98%E5%A4%A7"><span class="nav-number">2.3.</span> <span class="nav-text">过程中机构买入，慢慢变大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B2%A1%E6%9C%89%E7%A0%94%E7%A9%B6%E7%9A%84%E5%9B%A0%E5%AD%90"><span class="nav-number">2.4.</span> <span class="nav-text">没有研究的因子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AD%96%E7%95%A5"><span class="nav-number">3.</span> <span class="nav-text">策略</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
