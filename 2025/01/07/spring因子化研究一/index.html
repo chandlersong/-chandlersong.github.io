@@ -20,31 +20,38 @@
     var CONFIG = {"hostname":"chandlersong.me","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="share my technique experience">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cs blog">
-<meta property="og:url" content="https://chandlersong.me/index.html">
+  <meta name="description" content="尝试把威科夫中的spring进行因子化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring因子化研究一">
+<meta property="og:url" content="https://chandlersong.me/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/index.html">
 <meta property="og:site_name" content="cs blog">
-<meta property="og:description" content="share my technique experience">
+<meta property="og:description" content="尝试把威科夫中的spring进行因子化。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chandlersong.me/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/springExample.png">
+<meta property="og:image" content="https://chandlersong.me/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/%E5%B8%82%E5%80%BC.png">
+<meta property="og:image" content="https://chandlersong.me/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/springC1%E5%91%A8%E6%9C%9F.png">
+<meta property="og:image" content="https://chandlersong.me/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/%E5%8A%A8%E9%87%8F%E5%9B%A0%E5%AD%901%E5%91%A8%E6%9C%9F.png">
+<meta property="article:published_time" content="2025-01-07T07:01:57.000Z">
+<meta property="article:modified_time" content="2025-01-07T07:01:57.768Z">
 <meta property="article:author" content="chandler song">
-<meta property="article:tag" content="quant, python, java">
+<meta property="article:tag" content="策略">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chandlersong.me/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/springExample.png">
 
-<link rel="canonical" href="https://chandlersong.me/">
+<link rel="canonical" href="https://chandlersong.me/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>cs blog</title>
+  <title>spring因子化研究一 | cs blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5HLL0G42Z"></script>
     <script>
@@ -156,9 +163,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -174,10 +182,9 @@
       <meta itemprop="name" content="cs blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/" class="post-title-link" itemprop="url">spring因子化研究一</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          spring因子化研究一
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -209,273 +216,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>尝试把威科夫中的spring进行因子化。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/01/07/spring%E5%9B%A0%E5%AD%90%E5%8C%96%E7%A0%94%E7%A9%B6%E4%B8%80/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>尝试把威科夫中的spring进行因子化。</p>
+<span id="more"></span>
+
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>看完了第一遍《威科夫操盘法》。我对于威科夫的分析的基本概念在于通过市场的成交量判断需求和供给之间的关系。判断日后的走势。</p>
+<p>关于买入点，其定义了spring这样的一个概念。其K线上的表现为在长周期上是上升趋势，短期内价格突破支撑线，然后反弹。而产生这种走势的原因在于，市场上需求占据主导的。<br>比如下图中就是一个标准的spring。</p>
+<img src="springExample.png" />
+
+<h2 id="我的理解"><a href="#我的理解" class="headerlink" title="我的理解"></a>我的理解</h2><p>从Spring的定义出发，其实我对于spring分解成下面3个关键点。</p>
+<ul>
+<li>长周期上是有上涨趋势的。这样也就是表示了保持动量的。</li>
+<li>市场上，应该缺少供给的。表象可以说是不活跃的。</li>
+<li>应该在吃撑点上方买入。</li>
+</ul>
+<h2 id="因子设计"><a href="#因子设计" class="headerlink" title="因子设计"></a>因子设计</h2><p>做了一个初学者。发觉手里工具不多。最后我因子化定义为其中两个的组合。</p>
+<ol>
+<li>动量因子1，动量因子1代表的是现在价格。在过去N周期之内的位置。取值范围是0到1。</li>
+<li>流动性因子NetBuyStd，根据威科夫的理论，供给或者需求有一方缺少的时候，交易量就会稀缺。我在这里定义成流动性低。<ol>
+<li>其中这样做的有个问题，因为流动性变低，也可能是需求减少。这点没有考虑到。</li>
+</ol>
+</li>
+</ol>
+<p>最后的因子大致长成这样。根据J神的经验，如果一个因子，你喜欢他，就乘上他，如果讨厌他，就除以他。<br>而在我设计这个因子的时候，我喜欢的是他在高位。讨厌的是他流动性高。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">signal</span>(<span class="params">*args</span>):</span><br><span class="line">    df = args[<span class="number">0</span>]</span><br><span class="line">    n = args[<span class="number">1</span>]</span><br><span class="line">    factor_name = args[<span class="number">2</span>]</span><br><span class="line">    factor1 = 动量因子<span class="number">1.</span>signal(df, n, <span class="string">&#x27;动量因子1&#x27;</span>)[<span class="string">&#x27;动量因子1&#x27;</span>]</span><br><span class="line">    short = <span class="built_in">max</span>(np.ceil(n / <span class="number">8</span>).astype(<span class="built_in">int</span>), <span class="number">24</span>)</span><br><span class="line">    factor2 = NetBuyStd.signal(df, short, <span class="string">&#x27;NetBuyStd&#x27;</span>)[<span class="string">&#x27;NetBuyStd&#x27;</span>]</span><br><span class="line">    intermediate = factor1 / (factor2 + eps)</span><br><span class="line">    df[factor_name] = intermediate.rolling(n, min_periods=<span class="number">2</span>).std()</span><br><span class="line">    <span class="keyword">return</span> df</span><br></pre></td></tr></table></figure>
+
+<p><strong>实盘因子我做了一点处理，但是大致意思就是如此</strong></p>
+<h1 id="研究"><a href="#研究" class="headerlink" title="研究"></a>研究</h1><p>我通过我的回测程序，定位到收益比较好的参数为在710，持有时间为12H，买入币为前10%的币，包含现货的纯多策略。<br>大概是1个月左右。之后的分析，都是基于这个做具体分析。</p>
+<p>基本用了论坛最新的框架。然后自己写了一些工具来做分析。我自己的分析每笔的transaction的工具已经发布。<br>有些还没有发布。</p>
+<h2 id="和市值相关的研究"><a href="#和市值相关的研究" class="headerlink" title="和市值相关的研究"></a>和市值相关的研究</h2><p>下面是市值的研究，这个策略比较偏向于买小市值的币。<br>我的统计方法是，把市值从小到大分成10组。然后统计买入的时候，该币的市值属于哪一组。成了下面的图。总体来说，还是偏小市值的币。<br>最小的那一组，其实买的也不是很多</p>
+<img src="市值.png" height="30%"/>
+
+<h2 id="周期的研究"><a href="#周期的研究" class="headerlink" title="周期的研究"></a>周期的研究</h2><p>我把2023年之前。分成了几个周期，然后以BTC作为Benchmark。对不同周期进行比较。得出以下几个结论。</p>
+<ol>
+<li>总体来说，比较适合牛市。在牛市的收益会高出很多。熊市亏的少了一半，震荡的环境下差不多。</li>
+<li>和动量因子1正相关。可以看下面第二张图。动量因子1小的时候，基本都亏的。</li>
+</ol>
+<p>设计因子的相关性<br><img src="springC1周期.png"/></p>
+<p>动量因子1的相关性<br><img src="动量因子1周期.png" height="30%"/></p>
+<h1 id="以后优化点"><a href="#以后优化点" class="headerlink" title="以后优化点"></a>以后优化点</h1><ol>
+<li>对动量因子1做一点单独的优化。比如过滤，加上一些惩罚函数这类。</li>
+<li>加入支撑因素研究。</li>
+<li>尝试一下多一空一或者CTA。</li>
+</ol>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E7%AD%96%E7%95%A5/" rel="tag"># 策略</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chandlersong.me/2024/01/18/%E6%81%90%E6%83%A7%E6%8C%87%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chandler song">
-      <meta itemprop="description" content="share my technique experience">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cs blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/01/18/%E6%81%90%E6%83%A7%E6%8C%87%E6%95%B0/" class="post-title-link" itemprop="url">恐惧指数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-01-18 14:42:36" itemprop="dateCreated datePublished" datetime="2024-01-18T14:42:36+08:00">2024-01-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-22 14:08:33" itemprop="dateModified" datetime="2024-01-22T14:08:33+08:00">2024-01-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E6%8A%A5/" itemprop="url" rel="index"><span itemprop="name">研报</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>对于《寻找业绩与估值的错配:非理性估值溢价因子》</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/01/18/%E6%81%90%E6%83%A7%E6%8C%87%E6%95%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chandlersong.me/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chandler song">
-      <meta itemprop="description" content="share my technique experience">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cs blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/" class="post-title-link" itemprop="url">N倍股报告研读</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-11-23 22:18:13" itemprop="dateCreated datePublished" datetime="2023-11-23T22:18:13+08:00">2023-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-03 15:21:39" itemprop="dateModified" datetime="2023-12-03T15:21:39+08:00">2023-12-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E6%8A%A5/" itemprop="url" rel="index"><span itemprop="name">研报</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>基于N倍股的研报的实现和研究。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/23/N%E5%80%8D%E8%82%A1%E7%A0%94%E8%AF%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/01/18/%E6%81%90%E6%83%A7%E6%8C%87%E6%95%B0/" rel="prev" title="恐惧指数">
+      <i class="fa fa-chevron-left"></i> 恐惧指数
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chandlersong.me/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chandler song">
-      <meta itemprop="description" content="share my technique experience">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="cs blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">筹码策略尝试（一）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-15 22:46:10" itemprop="dateCreated datePublished" datetime="2023-10-15T22:46:10+08:00">2023-10-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 22:31:50" itemprop="dateModified" datetime="2023-10-17T22:31:50+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index"><span itemprop="name">研究</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>对于筹码策略的第一次尝试</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/10/15/%E7%AD%B9%E7%A0%81%E7%AD%96%E7%95%A5%E5%B0%9D%E8%AF%95%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -528,6 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">我的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%A0%E5%AD%90%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.2.</span> <span class="nav-text">因子设计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6"><span class="nav-number">2.</span> <span class="nav-text">研究</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8C%E5%B8%82%E5%80%BC%E7%9B%B8%E5%85%B3%E7%9A%84%E7%A0%94%E7%A9%B6"><span class="nav-number">2.1.</span> <span class="nav-text">和市值相关的研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%A8%E6%9C%9F%E7%9A%84%E7%A0%94%E7%A9%B6"><span class="nav-number">2.2.</span> <span class="nav-text">周期的研究</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A5%E5%90%8E%E4%BC%98%E5%8C%96%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">以后优化点</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
